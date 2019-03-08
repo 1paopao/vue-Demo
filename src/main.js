@@ -3,9 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import $ from 'jquery'
+import vueMethodsPromise from 'vue-methods-promise'
 
 import Loading from './components/loading'
 Vue.use(Loading)
+Vue.use(vueMethodsPromise, {
+  hookName: '$promise', // Component default hook name
+  promise: (mp) => { // Promise callback
+    mp
+      .catch(function (err) {
+        console.log(mp)
+      })
+  }
+})
 
 Vue.config.productionTip = false
 

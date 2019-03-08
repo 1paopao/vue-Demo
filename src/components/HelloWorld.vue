@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <!-- 加载loading组件 -->
-    <Loading :messageone="title"></Loading>
+    <Loading :messageone="title" @data="getdata"></Loading>
+    <p>dadaadda:{{ this.i }}</p>
   </div>
 </template>
 
@@ -12,7 +13,14 @@ export default {
   data () {
     return {
       msg: 'Welcome to paopao',
-      title: 'this is title'
+      title: 'this is title',
+      i: ''
+    }
+  },
+  methods: {
+    getdata(msg) {
+      console.log('msg', msg)
+      this.i = msg
     }
   }
 }
